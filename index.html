@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech & Gadgets Store</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="website-title">Tech & Gadgets Store</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#home" onclick="showSection('home')">Home</a></li>
+          <li>
+            <a href="#products" onclick="showSection('products')">Products</a>
+          </li>
+          <li>
+            <a href="#categories" onclick="showSection('categories')"
+              >Categories</a
+            >
+          </li>
+          <li>
+            <a href="#contact" onclick="showSection('contact')">Contact</a>
+          </li>
+          <li><a href="#about" onclick="showSection('about')">About Us</a></li>
+        </ul>
+        <div class="search-bar">
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Search products..."
+          />
+          <button onclick="searchProduct()">Search</button>
+        </div>
+        <div class="cart-icon" onclick="showSection('cart')">
+          <i class="fas fa-shopping-cart"></i>
+          <span id="cart-count">0</span>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section id="home" class="section active">
+        <h1>Welcome to Tech & Gadgets Store</h1>
+        <p>Find the latest tech gadgets at unbeatable prices!</p>
+        <div
+          id="carouselExampleCaptions"
+          class="carousel slide"
+          data-bs-ride="true"
+        >
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="0"
+              class="active"
+              aria-current="true"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="1"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="2"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="3"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#carouselExampleCaptions"
+              data-bs-slide-to="4"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+          <div class="carousel-inner">
+            <div
+              class="carousel-item active"
+              onclick="redirectToProduct('Samsung S21+5g')"
+            >
+              <img src="samsung.avif" class="d-block w-100" alt="Samsung" />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Samsung S21+5g</h5>
+                <p>Shop premium gadgets at the best prices.</p>
+              </div>
+            </div>
+            <div class="carousel-item" onclick="redirectToProduct('HP Laptop')">
+              <img src="laptop.jpg" class="d-block w-100" alt="Laptop" />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>HP Laptop</h5>
+                <p>Discover the latest tech trends.</p>
+              </div>
+            </div>
+            <div class="carousel-item" onclick="redirectToProduct('Powerbank')">
+              <img src="powerbank.jpg" class="d-block w-100" alt="Powerbank" />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Powerbank</h5>
+                <p>Upgrade your devices today.</p>
+              </div>
+            </div>
+            <div
+              class="carousel-item"
+              onclick="redirectToProduct('Smart Watch')"
+            >
+              <img src="watch.jpg" class="d-block w-100" alt="Smart Watch" />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Smart Watch</h5>
+                <p>Upgrade your devices today.</p>
+              </div>
+            </div>
+            <div class="carousel-item" onclick="redirectToProduct('Earbuds')">
+              <img src="earbuds.jpg.jpg" class="d-block w-100" alt="Earbuds" />
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Earbuds</h5>
+                <p>Upgrade your devices today.</p>
+              </div>
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExampleCaptions"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="features">
+          <div class="feature-item">
+            <i class="fas fa-box feature-icon"></i>
+            <h3>Wide Range of Products</h3>
+            <p>From smartphones to accessories, we’ve got it all.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shipping-fast feature-icon"></i>
+            <h3>Fast Shipping</h3>
+            <p>Get your gadgets delivered in record time.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-lock feature-icon"></i>
+            <h3>Secure Payments</h3>
+            <p>Shop with confidence using our secure checkout.</p>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-headset feature-icon"></i>
+            <h3>24/7 Support</h3>
+            <p>We’re here to help anytime, day or night.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="products" class="section">
+        <h2>Products</h2>
+        <div class="product-list" id="product-list">
+          <div
+            class="card"
+            data-stock="5"
+            data-original-price="49999.99"
+            data-discount-price="45599.99"
+          >
+            <img src="samsung.avif" class="card-img-top" alt="Samsung" />
+            <div class="card-body">
+              <h5 class="card-title">Samsung S21+5g</h5>
+              <p class="card-text">
+                <s>₹49999.99</s> <span style="color: red">₹45599.99</span>
+              </p>
+              <p class="stock-status available">In Stock: 5</p>
+              <button
+                class="btn btn-primary"
+                onclick="addToCart('Samsung S21+5g', 45599.99, this)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div
+            class="card"
+            data-stock="3"
+            data-original-price="77500"
+            data-discount-price="75000"
+          >
+            <img src="laptop.jpg" class="card-img-top" alt="Laptop" />
+            <div class="card-body">
+              <h5 class="card-title">HP Laptop</h5>
+              <p class="card-text">
+                <s>₹77500</s> <span style="color: red">₹75000</span>
+              </p>
+              <p class="stock-status available">In Stock: 3</p>
+              <button
+                class="btn btn-primary"
+                onclick="addToCart('HP Laptop', 75000, this)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="card" data-stock="0" data-original-price="1999.99">
+            <img src="earbuds.jpg.jpg" class="card-img-top" alt="Earbuds" />
+            <div class="card-body">
+              <h5 class="card-title">Earbuds</h5>
+              <p class="card-text">₹1999.99</p>
+              <p class="stock-status out-of-stock">Out of Stock</p>
+              <button class="btn btn-primary" disabled>Add to Cart</button>
+            </div>
+          </div>
+          <div
+            class="card"
+            data-stock="2"
+            data-original-price="1499.99"
+            data-discount-price="1399.99"
+          >
+            <img src="powerbank.jpg" class="card-img-top" alt="Powerbank" />
+            <div class="card-body">
+              <h5 class="card-title">Powerbank</h5>
+              <p class="card-text">
+                <s>₹1499.99</s> <span style="color: red">₹1399.99</span>
+              </p>
+              <p class="stock-status available">In Stock: 2</p>
+              <button
+                class="btn btn-primary"
+                onclick="addToCart('Powerbank', 1399.99, this)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+          <div class="card" data-stock="1" data-original-price="3999.99">
+            <img src="watch.jpg" class="card-img-top" alt="Smart Watch" />
+            <div class="card-body">
+              <h5 class="card-title">Smart Watch</h5>
+              <p class="card-text">₹3999.99</p>
+              <p class="stock-status available">In Stock: 1</p>
+              <button
+                class="btn btn-primary"
+                onclick="addToCart('Smart Watch', 3999.99, this)"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="categories" class="section">
+        <h2>Categories</h2>
+        <div class="category-list">
+          <div class="category-card">
+            <img src="samsung.avif" class="card-img-top" alt="Smartphones" />
+            <div class="card-body">
+              <h5 class="card-title">Smartphones</h5>
+              <div class="product-list" id="smartphones-list">
+                <div
+                  class="card"
+                  data-stock="5"
+                  data-original-price="49999.99"
+                  data-discount-price="45599.99"
+                >
+                  <img
+                    src="samsung.avif"
+                    class="card-img-top"
+                    alt="Samsung S21+5g"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Samsung S21+5g</h5>
+                    <p class="card-text">
+                      <s>₹49999.99</s>
+                      <span style="color: red">₹45599.99</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 5</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Samsung S21+5g', 45599.99, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="2"
+                  data-original-price="77999.00"
+                  data-discount-price="78200.00"
+                >
+                  <img src="iphone.avif" class="card-img-top" alt="iPhone 14" />
+                  <div class="card-body">
+                    <h5 class="card-title">iPhone 14</h5>
+                    <p class="card-text">
+                      <s>₹77999.00</s>
+                      <span style="color: red">₹78200.00</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 2</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('iPhone 14', 78200.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="0"
+                  data-original-price="32999.00"
+                >
+                  <img
+                    src="samsung_galaxy.jpg"
+                    class="card-img-top"
+                    alt="Samsung Galaxy S23"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Samsung Galaxy S23</h5>
+                    <p class="card-text">₹32999.00</p>
+                    <p class="stock-status out-of-stock">Out of Stock</p>
+                    <button class="btn btn-primary" disabled>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="3"
+                  data-original-price="46394.00"
+                >
+                  <img
+                    src="google-pixel7-pro-2.jpg"
+                    class="card-img-top"
+                    alt="Google Pixel 7"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Google Pixel 7</h5>
+                    <p class="card-text">₹46394.00</p>
+                    <p class="stock-status available">In Stock: 3</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Google Pixel 7', 46394.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="category-card">
+            <img src="laptop.jpg" class="card-img-top" alt="Laptops" />
+            <div class="card-body">
+              <h5 class="card-title">Laptops</h5>
+              <div class="product-list" id="laptops-list">
+                <div
+                  class="card"
+                  data-stock="1"
+                  data-original-price="99999.00"
+                  data-discount-price="84999.00"
+                >
+                  <img
+                    src="mackbook.avif"
+                    class="card-img-top"
+                    alt="MacBook Air"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">MacBook Air</h5>
+                    <p class="card-text">
+                      <s>₹99999.00</s>
+                      <span style="color: red">₹84999.00</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 1</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('MacBook Air', 84999.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="0"
+                  data-original-price="120000.00"
+                >
+                  <img src="dell.avif" class="card-img-top" alt="Dell XPS 13" />
+                  <div class="card-body">
+                    <h5 class="card-title">Dell XPS 13</h5>
+                    <p class="card-text">₹120000.00</p>
+                    <p class="stock-status out-of-stock">Out of Stock</p>
+                    <button class="btn btn-primary" disabled>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="4"
+                  data-original-price="56000.00"
+                  data-discount-price="49999.00"
+                >
+                  <img
+                    src="hplaptop.png"
+                    class="card-img-top"
+                    alt="HP Spectre"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">HP Laptop</h5>
+                    <p class="card-text">
+                      <s>₹56000.00</s>
+                      <span style="color: red">₹49999.00</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 4</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('HP Spectre', 49999.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="2"
+                  data-original-price="87999.00"
+                >
+                  <img
+                    src="lenovo.jpeg"
+                    class="card-img-top"
+                    alt="Lenovo ThinkPad"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Lenovo ThinkPad</h5>
+                    <p class="card-text">₹87999.00</p>
+                    <p class="stock-status available">In Stock: 2</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Lenovo ThinkPad', 87999.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="category-card">
+            <img src="earbuds.jpg.jpg" class="card-img-top" alt="Accessories" />
+            <div class="card-body">
+              <h5 class="card-title">Accessories</h5>
+              <div class="product-list" id="accessories-list">
+                <div class="card" data-stock="0" data-original-price="1999.99">
+                  <img
+                    src="earbuds.jpg.jpg"
+                    class="card-img-top"
+                    alt="Earbuds"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Earbuds</h5>
+                    <p class="card-text">₹1999.99</p>
+                    <p class="stock-status out-of-stock">Out of Stock</p>
+                    <button class="btn btn-primary" disabled>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="3"
+                  data-original-price="1499.99"
+                  data-discount-price="1399.99"
+                >
+                  <img
+                    src="powerbank.jpg"
+                    class="card-img-top"
+                    alt="Power Bank"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Power Bank</h5>
+                    <p class="card-text">
+                      <s>₹1499.99</s> <span style="color: red">₹1399.99</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 3</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Power Bank', 1399.99, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div class="card" data-stock="1" data-original-price="1999.99">
+                  <img src="watch.jpg" class="card-img-top" alt="Smart Watch" />
+                  <div class="card-body">
+                    <h5 class="card-title">Smart Watch</h5>
+                    <p class="card-text">₹1999.99</p>
+                    <p class="stock-status available">In Stock: 1</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Smart Watch', 1999.99, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+                <div
+                  class="card"
+                  data-stock="5"
+                  data-original-price="1299.99"
+                  data-discount-price="1200.00"
+                >
+                  <img
+                    src="realmecharger.webp"
+                    class="card-img-top"
+                    alt="Charger"
+                  />
+                  <div class="card-body">
+                    <h5 class="card-title">Charger</h5>
+                    <p class="card-text">
+                      <s>₹1299.99</s> <span style="color: red">₹1200.00</span>
+                    </p>
+                    <p class="stock-status available">In Stock: 5</p>
+                    <button
+                      class="btn btn-primary"
+                      onclick="addToCart('Charger', 1200.00, this)"
+                    >
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact Us</h2>
+        <p>
+          Need help with your tech purchases? Contact us for assistance with
+          product inquiries, order tracking, or technical support. We're here to
+          ensure you have the best shopping experience at Tech & Gadgets Store!
+        </p>
+        <form id="contact-form" onsubmit="return validateContactForm(event)">
+          <div class="contact-form-container">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required />
+            <label for="phone">Phone Number (10 digits):</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[0-9]{10}"
+              required
+              title="Please enter a 10-digit phone number"
+            />
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+        <p>Email: support@techstore.com</p>
+        <p>Phone: +87 0994 8722</p>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About Us</h2>
+        <p>
+          We are Tech & Gadgets Store, your one-stop shop for the latest
+          technology and innovative gadgets. Established in 2020, our mission is
+          to provide high-quality products at competitive prices with
+          exceptional customer service.
+        </p>
+        <p>
+          Our team is passionate about technology and committed to helping you
+          find the perfect gadgets to enhance your life. Whether you're looking
+          for smartphones, laptops, or accessories, we've got you covered!
+        </p>
+      </section>
+
+      <section id="cart" class="section">
+        <h2>Your Cart</h2>
+        <ul id="cart-items"></ul>
+        <p id="cart-empty" style="display: none">Your cart is empty.</p>
+        <button
+          class="btn btn-primary"
+          onclick="showShippingForm()"
+          id="proceed-to-checkout"
+          style="display: none"
+        >
+          Proceed to Checkout
+        </button>
+      </section>
+
+      <section id="shipping" class="section">
+        <h2>Shipping Details</h2>
+        <form
+          id="shipping-form"
+          class="shipping-form-container"
+          onsubmit="return processOrder(event)"
+        >
+          <label for="shipping-name">Full Name:</label>
+          <input type="text" id="shipping-name" name="shipping-name" required />
+          <label for="shipping-phone">Phone Number (10 digits):</label>
+          <input
+            type="tel"
+            id="shipping-phone"
+            name="shipping-phone"
+            pattern="[0-9]{10}"
+            required
+            title="Please enter a 10-digit phone number"
+          />
+          <label for="shipping-address">Shipping Address:</label>
+          <input
+            type="text"
+            id="shipping-address"
+            name="shipping-address"
+            required
+          />
+          <label for="payment-method">Payment Method:</label>
+          <select id="payment-method" name="payment-method" required>
+            <option value="">Select Payment Method</option>
+            <option value="online">Online Payment</option>
+            <option value="cod">Cash on Delivery</option>
+          </select>
+          <button type="submit" class="btn btn-primary">Place Order</button>
+        </form>
+      </section>
+
+      <section id="success" class="section">
+        <h2>Order Successful!</h2>
+        <p>
+          Thank you for your purchase! Your order has been successfully placed.
+          You'll receive a confirmation soon.
+        </p>
+        <button class="btn btn-primary" onclick="showSection('home')">
+          Back to Home
+        </button>
+      </section>
+
+      <!-- Hidden payment scanner section -->
+<div id="payment-scanner" style="display: none; text-align: center;">
+  <h3>Scan to Pay</h3>
+  <img src="your-qr-code.png" alt="Scan to pay" style="width: 200px; height: 200px;" />
+  <p>Waiting for payment...</p>
+</div>
+
+<!-- Success message section -->
+<div id="payment-success" style="display: none; text-align: center; color: green;">
+  <h3>Payment Successful!</h3>
+  <p>Your order has been placed successfully.</p>
+</div>
+
+    </main>
+
+    <footer>
+      <div class="footer-content">
+        <p>© 2025 Tech & Gadgets Store. All Rights Reserved.</p>
+        <p>Your one-stop shop for the latest gadgets and technology.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com" target="_blank" class="facebook"
+            ><i class="fab fa-facebook"></i
+          ></a>
+          <a href="https://www.twitter.com" target="_blank" class="twitter"
+            ><i class="fab fa-twitter"></i
+          ></a>
+          <a href="https://www.instagram.com" target="_blank" class="instagram"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="https://www.linkedin.com" target="_blank" class="linkedin"
+            ><i class="fab fa-linkedin"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
